@@ -209,7 +209,7 @@ class AdminComponent extends React.Component {
           }}
         >
           <button className="btn btn-danger" onClick={this.handlePopupFlag}>
-            Close
+            X
           </button>
         </div>
         <h4 style={{ textAlign: "center" }}>Are you sure?</h4>
