@@ -33,7 +33,7 @@ public class UserController {
 	@PostMapping("/save")
 	public ResponseEntity<String> saveEmployee(@RequestBody User e) {
 		Integer id = userService.saveEmployee(e);
-		return new ResponseEntity<String>("Employee " + "'" + id + "'" + " added successfully..!!", HttpStatus.OK);
+		return new ResponseEntity<String>("Employee " + "'" + id + "'" + " inserted successfully..!!", HttpStatus.OK);
 	}
 
 	// 2. get all employees
