@@ -33,7 +33,7 @@ public class UserController {
 	@PostMapping("/save")
 	public ResponseEntity<String> saveEmployee(@RequestBody User e) {
 		Integer id = userService.saveEmployee(e);
-		return new ResponseEntity<String>("Employee " + "'" + id + "'" + " saved", HttpStatus.OK);
+		return new ResponseEntity<String>("Employee " + "'" + id + "'" + " added successfully..!!", HttpStatus.OK);
 	}
 
 	// 2. get all employees
@@ -81,7 +81,7 @@ public class UserController {
 		User emp = userService.findById(id);
 		
 		userService.deleteEmployee(emp);
-		return new ResponseEntity<String>("Deleted successfully..!!", HttpStatus.OK);
+		return new ResponseEntity<String>("Employee"+" '" +emp +"' "+" deleted successfully..!!", HttpStatus.OK);
 		
 	}
 	
