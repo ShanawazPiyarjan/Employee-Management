@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.shanawaz.springboot.exceptionhandling.EmpNotFound;
 import com.shanawaz.springboot.model.User;
 
 import com.shanawaz.springboot.service.UserService;
@@ -78,11 +78,20 @@ public class UserController {
 	@DeleteMapping("/employees/delete/{id}")
 	public ResponseEntity<String> deleteEmp(@PathVariable Integer id)
 	{
+	
 		User emp = userService.findById(id);
 		
-		userService.deleteEmployee(emp);
-		return new ResponseEntity<String>("Employee"+" '" +emp +"' "+" deleted successfully..!!", HttpStatus.OK);
-		
+		if(emp != null)
+		{
+			userService.deleteEmployee(emp);
+			return new ResponseEntity<String>("Employee"+" '" +emp +"' "+" deleted successfully..!!", HttpStatus.OK);
+			
+			
+		}
+		else
+		{
+			return new ResponseEntity<String>("Employee"+" '" +emp +"' "+" not found..!!", HttpStatus.OK);
+		}
 	}
 	
 //	//6. get employee by id
